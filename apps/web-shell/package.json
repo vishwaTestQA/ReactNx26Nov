@@ -1,5 +1,12 @@
 {
   "name": "@react-nx26-nov/web-shell",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+    "dependencies": {
+    "@react-nx26-nov/feature-payment": "workspace:*",
+    "@react-nx26-nov/feature-login": "workspace:*",
+   "@react-nx26-nov/ui-kit": "workspace:*",
+   "@react-nx26-nov/feature-products": "workspace:*"
+
+  }
 }

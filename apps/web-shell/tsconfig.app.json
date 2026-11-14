@@ -32,5 +32,19 @@
     "eslint.config.cjs",
     "eslint.config.mjs"
   ],
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
+  "references": [
+    {
+      "path": "../../libs/modules/auth/feature-login/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modules/products/feature-products/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/shared/ui-kit/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modules/checkout/feature-payment/tsconfig.lib.json"
+    }
+  ]
 }

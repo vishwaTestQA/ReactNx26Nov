@@ -8,6 +8,33 @@
     },
     {
       "path": "./apps/web-shell"
+    },
+    {
+      "path": "./libs/shared/ui-kit"
+    },
+    {
+      "path": "./libs/shared/http-client"
+    },
+    {
+      "path": "./libs/shared/utils"
+    },
+    {
+      "path": "./libs/api/core-contracts"
+    },
+    {
+      "path": "./libs/modules/auth/feature-login"
+    },
+    {
+      "path": "./libs/modules/auth/data-access"
+    },
+    {
+      "path": "./libs/modules/checkout/feature-payment"
+    },
+    {
+      "path": "./libs/modules/products/data-access"
+    },
+    {
+      "path": "./libs/modules/products/feature-products"
     }
   ]
 }
