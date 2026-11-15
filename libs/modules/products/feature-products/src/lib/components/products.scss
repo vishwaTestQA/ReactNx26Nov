@@ -1,0 +1,19 @@
+img{
+    display: block;
+    width:100%;
+}
+
+.product-image{
+    width: 200px;
+    height: auto;
+    border: red;
+}
+
+.product-card{
+    display: flex;
+}
+
+.products-container{
+    display: flex;
+    flex-direction: row;
+}

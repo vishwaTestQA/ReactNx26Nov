@@ -16,7 +16,7 @@
   },
    "dependencies": {
     "@react-nx26-nov/products-data-access": "workspace:*",
-    "@react-nx26-nov/shared-types": "workspace:*"
+    "@react-nx26-nov/types": "workspace:*"
   },
   "nx": {
     "name": "feature-products",

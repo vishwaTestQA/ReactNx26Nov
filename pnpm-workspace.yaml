@@ -14,3 +14,4 @@ allowBuilds:
   nx: true
   '@swc/core': false
   esbuild: false
+  '@parcel/watcher': set this to true or false

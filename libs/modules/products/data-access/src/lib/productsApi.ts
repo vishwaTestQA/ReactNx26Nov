@@ -1,5 +1,6 @@
 import { baseApi } from '@react-nx26-nov/http-client';
-import { Product, ProductsResponse } from './models/Products.types';
+import { ProductsResponse } from './models/Products.types';
+import { Product } from '@react-nx26-nov/shared-types';
 
 export const productsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

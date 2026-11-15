@@ -1,5 +1,7 @@
+import { Product } from "@react-nx26-nov/shared-types";
+
 export interface ProductsResponse {
-  products: Produ[];
+  products: Product[];
   total: number;
   skip: number;
   limit: number;

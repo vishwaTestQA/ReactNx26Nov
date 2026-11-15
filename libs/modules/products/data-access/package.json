@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@react-nx26-nov/http-client": "workspace:*",
-    "@react-nx26-nov/shared-types": "workspace:*"
+    "@react-nx26-nov/types": "workspace:*"
   },
   "nx": {
     "name": "products-data-access",
