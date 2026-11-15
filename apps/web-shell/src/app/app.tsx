@@ -20,9 +20,9 @@ const CheckoutPage = React.lazy(() =>
   }))
 );
 
-const ProductModules = React.lazy(() =>
+const ProductsModules = React.lazy(() =>
   import("@react-nx26-nov/feature-products").then((m) => ({
-    default: m.ReactNx26NovFeatureProducts,
+    default: m.ProductsRoutes,
   }))
 );
 
@@ -31,6 +31,7 @@ export function App() {
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <nav className="flex gap-6 bg-white px-6 py-4 shadow-sm">
         <Link to="/" className="font-semibold text-blue-600">Home</Link>
+        {/* <Link to="/products" className="font-semibold text-blue-600">Products</Link> */}
         <Link to="/catalog">Catalog / Accounts</Link>
         <Link to="/checkout">Checkout / Transfers</Link>
         <Link to="/login">Login</Link>
@@ -41,7 +42,7 @@ export function App() {
           <Routes>
             <Route path="/" element={<h1 className="text-2xl font-bold">Enterprise Portal</h1>} />
             <Route path="/" element={<h1 className="text-2xl font-bold">Enterprise Portal</h1>} />
-            <Route path="/product/*" element={<ProductModules />} />
+            <Route path="/products/*" element={<ProductsModules />} />
             {/* <Route path="/catalog/*" element={<CatalogPage />} />  */}
             <Route path="/checkout/*" element={<CheckoutPage />} />
           </Routes>

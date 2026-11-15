@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "types": [
+      "vite/client",
       "node",
       "@nx/react/typings/cssmodule.d.ts",
       "@nx/react/typings/image.d.ts"

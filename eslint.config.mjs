@@ -1,7 +1,81 @@
-import nx from '@nx/eslint-plugin';
+// import nx from '@nx/eslint-plugin';
 
+// export default [
+//   // ...keep existing config blocks
+//   {
+//     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+//     rules: {
+//       '@nx/enforce-module-boundaries': [
+//         'error',
+//         {
+//           enforceBuildableLibDependency: true,
+//           allow: [],
+//           depConstraints: [
+//             // 1. Web-shell can import features, shared libs, and API contracts
+//             {
+//               sourceTag: 'scope:shell',
+//               onlyDependOnLibsWithTags: [
+//                 'scope:auth',
+//                 'scope:catalog',
+//                 'scope:checkout',
+//                 'scope:shared',
+//                 'scope:api',
+//               ],
+//             },
+//             // 2. Domain modules can ONLY import from themselves, shared, and api (NO cross-module imports!)
+//             {
+//               sourceTag: 'scope:auth',
+//               onlyDependOnLibsWithTags: [
+//                 'scope:auth',
+//                 'scope:shared',
+//                 'scope:api',
+//               ],
+//             },
+//             {
+//               sourceTag: 'scope:catalog',
+//               onlyDependOnLibsWithTags: [
+//                 'scope:catalog',
+//                 'scope:shared',
+//                 'scope:api',
+//               ],
+//             },
+//             {
+//               sourceTag: 'scope:checkout',
+//               onlyDependOnLibsWithTags: [
+//                 'scope:checkout',
+//                 'scope:shared',
+//                 'scope:api',
+//               ],
+//             },
+//             // 3. Shared libraries can ONLY depend on other shared libraries or API types
+//             {
+//               sourceTag: 'scope:shared',
+//               onlyDependOnLibsWithTags: ['scope:shared', 'scope:api'],
+//             },
+//             // 4. API contracts must remain pure and cannot depend on UI or modules
+//             {
+//               sourceTag: 'scope:api',
+//               onlyDependOnLibsWithTags: ['scope:api'],
+//             },
+//             // 5. Layer hierarchy: UI cannot import heavy feature containers
+//             {
+//               sourceTag: 'type:ui',
+//               onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
+//   {
+//     ignores: ['**/vitest.config.*.timestamp*', '**/vite.config.*.timestamp*'],
+//   },
+// ];
+
+
+// eslint.config.mjs
 export default [
-  // ...keep existing config blocks
+  // ...keep existing base configs
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
@@ -11,63 +85,57 @@ export default [
           enforceBuildableLibDependency: true,
           allow: [],
           depConstraints: [
-            // 1. Web-shell can import features, shared libs, and API contracts
+            // 1. Web-shell can import ANY module, shared lib, or API contract (no edits needed when adding new modules!)
             {
               sourceTag: 'scope:shell',
-              onlyDependOnLibsWithTags: [
-                'scope:auth',
-                'scope:catalog',
-                'scope:checkout',
-                'scope:shared',
-                'scope:api',
-              ],
+              onlyDependOnLibsWithTags: ['scope:*'],
             },
-            // 2. Domain modules can ONLY import from themselves, shared, and api (NO cross-module imports!)
+
+            // 2. Domain modules (add 1 entry here only when creating a new top-level domain)
             {
               sourceTag: 'scope:auth',
-              onlyDependOnLibsWithTags: [
-                'scope:auth',
-                'scope:shared',
-                'scope:api',
-              ],
+              onlyDependOnLibsWithTags: ['scope:auth', 'scope:shared', 'scope:api'],
             },
             {
-              sourceTag: 'scope:catalog',
-              onlyDependOnLibsWithTags: [
-                'scope:catalog',
-                'scope:shared',
-                'scope:api',
-              ],
+              sourceTag: 'scope:products',
+              onlyDependOnLibsWithTags: ['scope:products', 'scope:shared', 'scope:api'],
             },
             {
               sourceTag: 'scope:checkout',
-              onlyDependOnLibsWithTags: [
-                'scope:checkout',
-                'scope:shared',
-                'scope:api',
-              ],
+              onlyDependOnLibsWithTags: ['scope:checkout', 'scope:shared', 'scope:api'],
             },
-            // 3. Shared libraries can ONLY depend on other shared libraries or API types
+
+            // 3. Shared and API foundation rules (never need changing)
             {
               sourceTag: 'scope:shared',
               onlyDependOnLibsWithTags: ['scope:shared', 'scope:api'],
             },
-            // 4. API contracts must remain pure and cannot depend on UI or modules
             {
               sourceTag: 'scope:api',
               onlyDependOnLibsWithTags: ['scope:api'],
             },
-            // 5. Layer hierarchy: UI cannot import heavy feature containers
+
+            // 4. Layer hierarchy rules (apply across ALL teams automatically)
+            {
+              sourceTag: 'type:feature',
+              onlyDependOnLibsWithTags: ['type:feature', 'type:ui', 'type:data-access', 'type:util'],
+            },
             {
               sourceTag: 'type:ui',
               onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
+            },
+            {
+              sourceTag: 'type:data-access',
+              onlyDependOnLibsWithTags: ['type:data-access', 'type:util'],
+            },
+            {
+              sourceTag: 'type:util',
+              onlyDependOnLibsWithTags: ['type:util'],
             },
           ],
         },
       ],
     },
   },
-  {
-    ignores: ['**/vitest.config.*.timestamp*', '**/vite.config.*.timestamp*'],
-  },
 ];
+

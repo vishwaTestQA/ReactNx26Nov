@@ -1,1 +1,2 @@
-export * from './lib/products-data-access';
+export * from './lib/productsApi';
+export * from './lib/models/Products.types'

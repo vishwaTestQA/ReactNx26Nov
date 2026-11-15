@@ -35,6 +35,9 @@
     },
     {
       "path": "./libs/modules/products/feature-products"
+    },
+    {
+      "path": "./libs/modules/checkout/data-access"
     }
   ]
 }

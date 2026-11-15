@@ -11,6 +11,9 @@
     },
     "./package.json": "./package.json"
   },
+  "dependencies": {
+    "@react-nx26-nov/http-client": "workspace:*"
+  },
   "nx": {
     "name": "products-data-access",
     "tags": [

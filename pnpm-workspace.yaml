@@ -1,10 +1,12 @@
 packages:
   - 'apps/*'
-  - 'libs/shared/ui-kit/*'
-  - 'libs/shared/*'
-  - 'libs/api/*'
-  - 'libs/modules/auth/feature-login/*'
-  - 'libs/modules/checkout/*'
+  - 'libs/**'
+  - '!**/dist/**'
+  # - 'libs/shared/ui-kit/*'
+  # - 'libs/shared/*'
+  # - 'libs/api/*'
+  # - 'libs/modules/auth/feature-login/*'
+  # - 'libs/modules/checkout/*'
   # - 'libs/modules/products/*'
   # - 'libs/modules/products/feature-products/*'
 autoInstallPeers: true
