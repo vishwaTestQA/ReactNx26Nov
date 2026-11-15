@@ -38,6 +38,9 @@
     },
     {
       "path": "./libs/modules/checkout/data-access"
+    },
+    {
+      "path": "./libs/shared/types"
     }
   ]
 }

@@ -1,6 +1,9 @@
-import type { Product } from '@react-nx26-nov/products-data-access';
+// import type { Product } from '@react-nx26-nov/products-data-access';
 
-const ProductsComponent = ({products}: {products: Product[]}) => {
+
+
+
+const ProductsComponent = ({products}: {products: produ[]}) => {
    return( <div>
          {
             products.map(prod => <div>{prod.id}</div>)

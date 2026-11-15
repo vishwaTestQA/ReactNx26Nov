@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxReadySignal } from '@nx/vite/plugins/nx-ready-signal.plugin';
 import tailwindcss from '@tailwindcss/vite';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -18,7 +19,7 @@ export default defineConfig(() => ({
     resolve: {
     conditions: ['@react-nx26-nov/source', 'browser', 'import', 'module', 'default'],
   },
-  plugins: [react(), nxReadySignal(), tailwindcss()],
+  plugins: [react(), nxReadySignal(), tailwindcss(),  nxViteTsPaths(),],
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],

@@ -16,6 +16,19 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@react-nx26-nov/source"]
+    "customConditions": ["@react-nx26-nov/source"],
+     "paths": {
+      "@react-nx26-nov/shared-types": ["libs/shared/types/src/index.ts"],
+      "@react-nx26-nov/http-client": ["libs/shared/http-client/src/index.ts"],
+      "@react-nx26-nov/ui-kit": ["libs/shared/ui-kit/src/index.ts"],
+      "@react-nx26-nov/auth-guard": ["libs/shared/auth-guard/src/index.ts"],
+      "@react-nx26-nov/utils": ["libs/shared/utils/src/index.ts"],
+      "@react-nx26-nov/products-data-access": ["libs/modules/products/data-access/src/index.ts"],
+      "@react-nx26-nov/feature-products": ["libs/modules/products/feature-products/src/index.ts"],
+      "@react-nx26-nov/checkout-data-access": ["libs/modules/checkout/data-access/src/index.ts"],
+      "@react-nx26-nov/feature-payment": ["libs/modules/checkout/feature-payment/src/index.ts"],
+      "@react-nx26-nov/feature-login": ["libs/modules/auth/feature-login/src/index.ts"]
+    }
   }
 }
+
