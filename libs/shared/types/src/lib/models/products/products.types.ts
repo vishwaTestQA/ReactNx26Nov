@@ -44,3 +44,4 @@ export interface Product {
   images: string[];
   thumbnail: string;
 }
+

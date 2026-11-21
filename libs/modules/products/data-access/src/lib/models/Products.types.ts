@@ -7,6 +7,18 @@ export interface ProductsResponse {
   limit: number;
 }
 
+export interface ProductCardItem {
+  id: number;
+  title: string;
+  category: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  availabilityStatus: string;
+  thumbnail: string;
+  brand?: string;
+}
+
 // export interface Product {
 //   id: number;
 //   title: string;

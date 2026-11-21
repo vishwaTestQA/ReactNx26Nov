@@ -1,5 +1,5 @@
 import { baseApi } from '@react-nx26-nov/http-client';
-import { ProductsResponse } from './models/Products.types';
+import { ProductCardItem, ProductsResponse } from './models/Products.types';
 import { Product } from '@react-nx26-nov/shared-types';
 
 export const productsApi = baseApi.injectEndpoints({
@@ -9,10 +9,24 @@ export const productsApi = baseApi.injectEndpoints({
       query: (search = '') => {
         const trimmed = search?.trim();
         return trimmed
-          ? `/products/search?q=${encodeURIComponent(trimmed)}`
+          // ? `/products/search?q=${encodeURIComponent(trimmed)}`   //in realtime if its configured then can use this
+          ? `/products?q=${encodeURIComponent(trimmed)}`     //json-server response wont provide the above
           : '/products';
       },
-      transformResponse: (response: ProductsResponse) => response.products,
+      // transformResponse: (response: ProductsResponse) => response.products, 
+
+    //     transformResponse: (response: ProductsResponse): ProductCardItem[] =>
+    //          response.products.map((p) => ({
+    //   id: p.id,
+    //   title: p.title,
+    //   category: p.category,
+    //   price: p.price,
+    //   discountPercentage: Math.round(p.discountPercentage),
+    //   rating: Number(p.rating.toFixed(1)),
+    //   availabilityStatus: p.availabilityStatus,
+    //   thumbnail: p.thumbnail,
+    //   brand: p.brand,
+    // })),
       providesTags: ['Products'],
     }),
 

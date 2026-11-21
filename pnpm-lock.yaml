@@ -346,7 +346,17 @@ importers:
 
   libs/modules/checkout/data-access: {}
 
-  libs/modules/checkout/feature-payment: {}
+  libs/modules/checkout/feature-payment:
+    dependencies:
+      '@react-nx26-nov/checkout-data-access':
+        specifier: workspace:*
+        version: link:../data-access
+      '@react-nx26-nov/http-client':
+        specifier: workspace:*
+        version: link:../../../shared/http-client
+      '@react-nx26-nov/types':
+        specifier: workspace:*
+        version: link:../../../shared/types
 
   libs/modules/products/data-access:
     dependencies:
@@ -359,6 +369,9 @@ importers:
 
   libs/modules/products/feature-products:
     dependencies:
+      '@react-nx26-nov/http-client':
+        specifier: workspace:*
+        version: link:../../../shared/http-client
       '@react-nx26-nov/products-data-access':
         specifier: workspace:*
         version: link:../data-access

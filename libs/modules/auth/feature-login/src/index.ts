@@ -1,1 +1,3 @@
-export * from './lib/feature-login';
+// export * from './lib/component/feature-login';
+// export * from './lib/component/feature-register'
+export { default as AuthRoutes} from './lib/auth.routes';
