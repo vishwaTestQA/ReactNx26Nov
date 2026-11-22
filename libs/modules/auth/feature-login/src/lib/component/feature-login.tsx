@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './feature-login.module.css';
-import { useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -41,31 +41,81 @@ export function LoginComponent({
 
 
     await loginUser({email, password}).unwrap()
-    navigate('/home', {replace:true})
+    navigate('/products', {replace:true})
   }
 
   const {
     register,
     handleSubmit,
     setError,
-    formState: {errors, isSubmitting}
+    clearErrors,
+    getValues,
+    watch,
+    formState: {errors, isSubmitting, isDirty}
   } = useForm<LoginFormData>({
     defaultValues: {email:'test@gmail.com', password:'password'},
     resolver: zodResolver(loginFormSchema),
-    mode: 'onTouched'
+    // mode: 'onTouched'
+    mode: 'onBlur'
   })
+
+  const emailText = watch('email')
+
+  // const res = useMemo(() => {
+  //    return emailText+123
+  // }, [emailText])
+    // console.log('resss', res)
+
+  useEffect(() => {
+    console.log('render===')
+  })
+
+  //inform the user if they close tab or navigate before saving the form
+  useEffect(() => {
+  const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+    if (isDirty) {
+      e.preventDefault();
+    }
+  };
+  window.addEventListener('beforeunload', handleBeforeUnload);
+  return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+}, [isDirty]);
+
+const [passwordDisplay, setPasswordDisplay] = useState(false)
 
   return (
     <div className={styles['container']}>
       <form onSubmit={handleSubmit(handleLogin)}>
-      <input type="text" id="email" placeholder="email" {...register('email')}/>
+      <input type="email" id="email" placeholder="email"
+       {...register('email'), 
+        {
+          onChange: () => {
+            if(errors.email) clearErrors('email')
+            }
+          }
+        }
+        aria-invalid={errors.email ? 'true' : 'false'}
+        autoComplete='email'
+      />
       {errors.email && <span>{errors.email.message}</span>}
-      <input type="password" id="password" placeholder="password" {...register('password')}/>
+      <div className='flex'>
+      <input type={passwordDisplay ? 'text' : 'password'} id="password" placeholder="password" {...register('password')}/>
+      <button 
+          type='button' 
+          // disabled={getValues('password').length<6} 
+          onClick={() => setPasswordDisplay(!passwordDisplay)}>
+            {!passwordDisplay ? 'Show Password' : 'hide password'}
+      </button>
+     </div>
+
       {errors.password && <span>{errors.password.message}</span>} 
-      <button type="submit" disabled={isSubmitting}>{
+      <button 
+          type="submit" 
+          className={getValues('password').length<6 ? 'bg-gray-500' : ''}
+          disabled={isSubmitting}>{
          isSubmitting ? 'Login...' : 'Login'
         }</button>
-      <button onClick={() => navigate('/auth/register')}>Sign Up</button>
+      <button type="button" onClick={() => navigate('/auth/register')}>Sign Up</button>
       </form>
     </div>
   );
