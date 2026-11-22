@@ -1,1 +1,3 @@
-export * from './lib/data-access';
+export * from './lib/authApi';
+export * from './lib/auth.slice'
+export * from './lib/auth.types'

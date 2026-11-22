@@ -15,3 +15,5 @@ allowBuilds:
   '@swc/core': false
   esbuild: false
   '@parcel/watcher': set this to true or false
+minimumReleaseAgeExclude:
+  - '@hookform/resolvers@7.0.8'

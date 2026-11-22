@@ -6,8 +6,8 @@
     "@react-nx26-nov/http-client": "workspace:*",
     "@react-nx26-nov/feature-payment": "workspace:*",
     "@react-nx26-nov/feature-login": "workspace:*",
+    "@react-nx26-nov/auth-data-access": "workspace:*",
    "@react-nx26-nov/ui-kit": "workspace:*",
    "@react-nx26-nov/feature-products": "workspace:*"
-
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@react-nx26-nov/data-access",
+  "name": "@react-nx26-nov/auth-data-access",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -11,9 +11,13 @@
     },
     "./package.json": "./package.json"
   },
+  "dependencies": {
+    "@react-nx26-nov/http-client": "workspace:*",
+    "@react-nx26-nov/types": "workspace:*"
+  },
   "nx": {
     "tags": [
-      "scope:auth",
+      "scope:shared",
       "type:data-access"
     ]
   }

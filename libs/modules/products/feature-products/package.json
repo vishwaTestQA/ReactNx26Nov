@@ -17,7 +17,8 @@
    "dependencies": {
     "@react-nx26-nov/products-data-access": "workspace:*",
     "@react-nx26-nov/types": "workspace:*",
-    "@react-nx26-nov/http-client": "workspace:*"
+    "@react-nx26-nov/http-client": "workspace:*",
+     "@react-nx26-nov/auth-data-access": "workspace:*"
   },
   "nx": {
     "name": "feature-products",

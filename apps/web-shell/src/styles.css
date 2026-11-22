@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @source "../../../libs";
+
+@layer base {
+  :where(input:not([type="checkbox"]):not([type="radio"]), select, textarea, button) {
+    border: 1px solid #9ca3af;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    padding: 0.375rem 0.75rem;
+  }
+
+  :where(input, select, textarea, button):focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+}

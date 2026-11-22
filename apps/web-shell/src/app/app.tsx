@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
+import {ProtectedRoutes } from '@react-nx26-nov/feature-login'
 
 // Lazy-load each team's entry feature library with its exact exported component name
 const AuthModules = React.lazy(() =>
@@ -42,9 +43,11 @@ export function App() {
           <Routes>
             <Route path="/" element={<h1 className="text-2xl font-bold">Enterprise Portal</h1>} />
             <Route path="/auth/*" element={<AuthModules/>} />
+            {/* <Route element={<ProtectedRoutes allowedRoles={['ADMIN', 'USER']} redirectTo='/auth/login'/>}> */}
             <Route path="/products/*" element={<ProductsModules />} />
             {/* <Route path="/catalog/*" element={<CatalogPage />} />  */}
             <Route path="/checkout/*" element={<CheckoutPage />} />
+            {/* </Route> */}
           </Routes>
         </Suspense>
       </main>

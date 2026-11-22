@@ -32,7 +32,7 @@ export const productsApi = baseApi.injectEndpoints({
 
     // 2. Fetches a single product by ID
     getProductById: builder.query<Product, string>({
-      query: (id) => `/products/${id}`,
+      query: (id) => `api/products/${id}`,
       providesTags: (_result, _error, id) => [{ type: 'Products', id }],
     }),
   }),

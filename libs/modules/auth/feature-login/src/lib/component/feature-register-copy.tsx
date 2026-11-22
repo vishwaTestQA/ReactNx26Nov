@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const RegisterComponent = () => {
+const RegisterComponentCopy = () => {
   useEffect(() => {
      console.log('render')
   },[])
@@ -86,4 +86,4 @@ const RegisterComponent = () => {
   )
 }
 
-export default RegisterComponent
+export default RegisterComponentCopy

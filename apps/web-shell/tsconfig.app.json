@@ -41,6 +41,9 @@
       "path": "../../libs/shared/ui-kit/tsconfig.lib.json"
     },
     {
+      "path": "../../libs/modules/auth/data-access/tsconfig.lib.json"
+    },
+    {
       "path": "../../libs/modules/auth/feature-login/tsconfig.lib.json"
     },
     {
